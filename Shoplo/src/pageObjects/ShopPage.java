@@ -1,4 +1,4 @@
-package automation;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +12,10 @@ public class ShopPage extends PageObject {
 	
 	@FindBy(css = "a[href='/admin/layout/theme/settings/2']")
 	private WebElement mainBanner;
+	
+	public boolean pageReady () {
+		return mainBanner.isDisplayed();
+	}
 	
 	public LoginPage clickBanner () {
 		mainBanner.click();

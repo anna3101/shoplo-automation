@@ -1,4 +1,4 @@
-package automation;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,26 +11,33 @@ public class ConfirmationPage extends PageObject {
         super(driver);
     }
 	
-	@FindBy(tagName = "h2")
+	@FindBy(xpath = "//h2[starts-with(text(), 'Witaj')]")
 	private WebElement header;
-	
+
 	@FindBy(css = "input[name='name']" )
 	private WebElement name;
 	
 	@FindBy(css = "input[name='phone']")
 	private WebElement phone;
 	
-	@FindBy(css = "button[data-id='selling_online']")
+	@FindBy(id = "sell_online")
+	private WebElement sellingElement;
 	private Select sellingDropdown;
 	
-	@FindBy(css = "button[data-id='why_testing']")
+	@FindBy(id = "why_testing")
+	private WebElement reasonElement;
 	private Select reasonDropdown;
 	
-	@FindBy(css = "button[data-id='hear_about']")
+	@FindBy(id = "hear_about")
+	private WebElement aboutElement;
 	private Select aboutDropdown;
 	
 	@FindBy(css = ".btn.btn-large.btn-purple.btn-block")
     private WebElement submitButton;
+	
+	public boolean pageReady () {
+		return header.isDisplayed();
+	}
 	
 	 public String welcomeHeader(){
 	        return header.getText();
@@ -47,14 +54,17 @@ public class ConfirmationPage extends PageObject {
 	    }
 	 
 	 public void selectSelling (String value) {
+		 sellingDropdown = new Select(sellingElement);
 		 sellingDropdown.selectByValue(value);
 	 }
 	 
 	 public void selectReason (String value) {
+		 reasonDropdown = new Select(reasonElement);
 		 reasonDropdown.selectByValue(value);
 	 }
 	 
 	 public void selectAbout (String value) {
+		 aboutDropdown = new Select(aboutElement);
 		 aboutDropdown.selectByValue(value);
 	 }
 	 

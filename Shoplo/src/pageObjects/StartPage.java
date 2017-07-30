@@ -1,4 +1,4 @@
-package automation;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +19,13 @@ public class StartPage extends PageObject {
 	@FindBy(tagName = "h3")
 	private WebElement header3;
 	
+	@FindBy(id = "productListSidebar")
+	private WebElement productsOption;
+	
+	public boolean pageReady () {
+		return productsOption.isDisplayed();
+	}
+	
 	 public String pageHeader(){
 	        return header1.getText();
 	    }
@@ -30,4 +37,9 @@ public class StartPage extends PageObject {
 	 public String storenameHeader(){
 	        return header3.getText();
 	    }
+	 
+	 public ProductListPage clickProductsOption () {
+		 productsOption.click();
+		 return new ProductListPage(driver);
+	 }
 }

@@ -1,4 +1,4 @@
-package automation;
+package testBase;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.AfterClass;

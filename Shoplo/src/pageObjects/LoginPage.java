@@ -1,4 +1,4 @@
-package automation;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +19,10 @@ public class LoginPage extends PageObject {
     @FindBy(css = ".btn.btn-red.btn-large.btn-cancel")
     private WebElement submitButton;
     
+    public boolean pageReady () {
+		return storeEmail.isDisplayed();
+	}
+    
     public void typeStoreEmail (String email){
         this.storeEmail.clear();
         this.storeEmail.sendKeys(email);
@@ -33,5 +37,10 @@ public class LoginPage extends PageObject {
         submitButton.click();
         return new StartPage(driver);
     }
-
+    
+   public StartPage login (String email, String password) {
+	 typeStoreEmail(email);
+	 typeStorePassword(password);
+	 return  submit();
+    }
 }

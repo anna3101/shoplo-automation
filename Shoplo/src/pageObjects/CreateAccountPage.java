@@ -1,4 +1,4 @@
-package automation;
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,14 +13,18 @@ public class CreateAccountPage extends PageObject {
     @FindBy(id="storeName")
     private WebElement storeName;
 
-    @FindBy(id="storeEmail")
+    @FindBy(css="input[name='email']")
     private WebElement storeEmail;
 
-    @FindBy(id="storePassword")
+    @FindBy(css="input[name='password']")
     private WebElement storePassword;
 
     @FindBy(css = ".btn.btn-large.btn-purple.btn-block")
     private WebElement submitButton;
+    
+    public boolean pageReady () {
+		return storeName.isDisplayed();
+	}
 
     public void typeStoreName (String name){
         this.storeName.clear();
@@ -41,5 +45,4 @@ public class CreateAccountPage extends PageObject {
         submitButton.click();
         return new ConfirmationPage(driver);
     }
-	
 }
