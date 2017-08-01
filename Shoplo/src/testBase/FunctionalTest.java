@@ -1,4 +1,6 @@
 package testBase;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,7 +17,9 @@ public class FunctionalTest {
 	    public static void setUp(){
 	    	System.setProperty("webdriver.chrome.driver", "D:/Automation/Selenium/chromedriver.exe");
 	        driver = new ChromeDriver();
-	        driver.manage().window().setSize(new Dimension(1680,1050));
+	        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+	        Dimension dimension = new Dimension(device.getDisplayMode().getWidth(), device.getDisplayMode().getHeight());
+	        driver.manage().window().setSize(dimension);
 	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    }
 

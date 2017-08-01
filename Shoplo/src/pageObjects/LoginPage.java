@@ -24,13 +24,11 @@ public class LoginPage extends PageObject {
 	}
     
     public void typeStoreEmail (String email){
-        this.storeEmail.clear();
-        this.storeEmail.sendKeys(email);
+       typeIntoField(storeEmail, email);
     }
     
     public void typeStorePassword (String password){
-        this.storePassword.clear();
-        this.storePassword.sendKeys(password);
+      typeIntoField(storePassword, password);
     }
     
     public StartPage submit(){

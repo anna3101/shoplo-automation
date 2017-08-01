@@ -15,7 +15,7 @@ public class ProductParametersPage extends PageObject {
 
 	@FindBy(css = "section[class='product-header']")
 	private WebElement productParamsHeader;
-	
+
 	public boolean pageReady () {
 		return productParamsHeader.isDisplayed();
 	}

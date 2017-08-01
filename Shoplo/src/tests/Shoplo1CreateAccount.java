@@ -18,8 +18,8 @@ public class Shoplo1CreateAccount extends FunctionalTest {
 		CreateAccountPage registerPage = new CreateAccountPage(driver);
 		assertTrue(registerPage.pageReady());
 		
-		registerPage.typeStoreName(TestData.storeName);
-		registerPage.typeStoreEmail(TestData.storeEmail);
+		registerPage.typeStoreName(TestData.storeRegisterName);
+		registerPage.typeStoreEmail(TestData.storeRegisterEmail);
 		registerPage.typeStorePassword(TestData.storePassword);
 		ConfirmationPage welcomePage = registerPage.submit();
 		assertTrue(welcomePage.pageReady());

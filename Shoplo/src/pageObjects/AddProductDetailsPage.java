@@ -45,24 +45,20 @@ public class AddProductDetailsPage extends PageObject {
 	}
 
 	public void typeProductName (String name) {
-		productName.clear();
-		productName.sendKeys(name);
+		typeIntoField(productName, name);
 	}
 
 	public void typeProductPrice (String price) {
-		productPrice.clear();
-		productPrice.sendKeys(price);
+		typeIntoField(productPrice, price);
 	}
 
 	public void typeProductCode (String code) {
-		productCode.clear();
-		productCode.sendKeys(code);
+		typeIntoField(productCode, code);
 	}
 
 	public void typeProductTax (String taxValue) {
 		scrollToTaxValue();
-		productTaxValue.clear();
-		productTaxValue.sendKeys(taxValue);
+		typeIntoField(productTaxValue, taxValue);
 	}
 
 	public ProductParametersPage saveProduct () {

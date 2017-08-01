@@ -15,10 +15,10 @@ public class ConfirmationPage extends PageObject {
 	private WebElement header;
 
 	@FindBy(css = "input[name='name']" )
-	private WebElement name;
+	private WebElement username;
 	
 	@FindBy(css = "input[name='phone']")
-	private WebElement phone;
+	private WebElement userPhone;
 	
 	@FindBy(id = "sell_online")
 	private WebElement sellingElement;
@@ -44,13 +44,11 @@ public class ConfirmationPage extends PageObject {
 	    }
 	 
 	 public void typeName (String name){
-	        this.name.clear();
-	        this.name.sendKeys(name);
+	       typeIntoField(username, name);
 	    }
 	 
 	 public void typePhone (String phone){
-	        this.phone.clear();
-	        this.phone.sendKeys(phone);
+	        typeIntoField(userPhone, phone);
 	    }
 	 
 	 public void selectSelling (String value) {

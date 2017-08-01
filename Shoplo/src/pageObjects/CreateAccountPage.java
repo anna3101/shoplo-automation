@@ -27,18 +27,16 @@ public class CreateAccountPage extends PageObject {
 	}
 
     public void typeStoreName (String name){
-        this.storeName.clear();
-        this.storeName.sendKeys(name);
+        typeIntoField(storeName, name);
     }
+   
 
     public void typeStoreEmail (String email){
-        this.storeEmail.clear();
-        this.storeEmail.sendKeys(email);
+        typeIntoField(storeEmail, email);
     }
     
     public void typeStorePassword (String password){
-        this.storePassword.clear();
-        this.storePassword.sendKeys(password);
+        typeIntoField(storePassword, password);
     }
 
     public ConfirmationPage submit(){
